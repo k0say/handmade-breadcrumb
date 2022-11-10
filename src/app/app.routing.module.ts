@@ -8,9 +8,9 @@ import { CComponent } from './c/c.component';
   declarations: [AComponent, BComponent, CComponent],
   imports: [
     RouterModule.forRoot([
-      { path: 'a', component: AComponent },
-      { path: 'b', component: BComponent },
-      { path: 'c', component: CComponent },
+      { path: 'a', component: AComponent, data: { msg: 'page msg' } },
+      { path: 'b', component: BComponent, data: { msg: 'page msg2' } },
+      { path: 'c', component: CComponent, data: { msg: 'page msg3' } },
       { path: '**', redirectTo: 'a' },
     ]),
   ],
