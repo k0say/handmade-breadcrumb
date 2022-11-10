@@ -20,12 +20,8 @@ export class BreadcrumbComponent implements OnInit {
     // console.log(event);
     if (event) {
       const id = event.id;
-      console.log(
-        'SPLICE ',
-        this.navigation.stack.filter((item) => !(item.id > id))
-      );
       this.breadValue = this.navigation.stack = this.navigation.stack.filter(
-        (item) => item.id > id
+        (item) => !(item.id > id - 1)
       );
     }
   }
