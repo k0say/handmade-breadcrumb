@@ -7,9 +7,10 @@ import { HelloComponent } from './hello.component';
 import { AppRoutingModule } from './app.routing.module';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { NavigationService } from './navigation.service';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-  imports: [AppRoutingModule, BrowserModule, FormsModule],
+  imports: [AppRoutingModule, BrowserModule, FormsModule, CommonModule],
   declarations: [AppComponent, HelloComponent, BreadcrumbComponent],
   bootstrap: [AppComponent],
   providers: [NavigationService],

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { from } from 'rxjs';
 import { NavigationService } from '../navigation.service';
+import { data } from './data';
 
 @Component({
   selector: 'app-a',
@@ -8,9 +10,12 @@ import { NavigationService } from '../navigation.service';
   styleUrls: ['./a.component.css'],
 })
 export class AComponent implements OnInit {
+  public arr1;
   constructor(private route: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.arr1 = data;
+  }
 
   navigate() {
     this.route.navigate(['b']);

@@ -1,6 +1,3 @@
-<p>breadcrumb works!</p>
-
-<!-- {{ breadValue | json }} -->
 <div>
   <a [routerLink]=[i.url] *ngFor="let i of breadValue" (click)="navigateTo(i)">{{ i.url }}</a>
 </div>
