@@ -1,15 +1,8 @@
-<p>a works!</p>
-<!-- 
-<div>
-  <li *ngFor="let i of arr1">
-    {{ i.name }}
-  </li>
-</div> -->
-<!-- <tr *ngFor="let person of arr1">
-  <td>{{ person.id }}</td>
-  <td>{{ person.name }}</td>
-</tr> -->
-
-<a routerLinkActive="active" routerLink="/b">B</a>
+<br>
+<br>
+<tr *ngFor="let person of arr1">
+  <td (click)="navigateTo(person.id, person.name)">{{ person.id }} - {{ person.name }}</td> <br />
+</tr>
+<!-- <a routerLinkActive="active" routerLink="/b">B</a> -->
 <br />
 <button (click)="navigate()">GO TO B</button>
