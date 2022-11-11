@@ -1,0 +1,11 @@
+<div class="container">
+    <a *ngIf="breadValue.length > 3">...</a>
+    <ng-container *ngFor="let i of breadValue; let idx = index">
+
+        <i *ngIf="idx >= 1" class="bi bi-caret-right"></i>
+
+        <p class="item" *ngIf="idx >= breadValue.length-3" [routerLink]="[i.url]" (click)="navigateTo(i)">
+            {{ i?.title }} {{ i?.params?.name ? '-' : ''}} {{ i?.params?.name }}
+        </p>
+    </ng-container>
+</div>

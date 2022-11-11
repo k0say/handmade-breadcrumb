@@ -1,0 +1,9 @@
+<br>
+<br>
+<p>You are in C</p>
+<tr *ngFor="let person of arr1">
+  <td (click)="navigateTo(person.id, person.name)">{{ person.id }} - {{ person.name }}</td> <br />
+</tr>
+<a routerLinkActive="active" routerLink="/a">A</a>
+<br>
+<button (click)="navigate()">GO TO A</button>

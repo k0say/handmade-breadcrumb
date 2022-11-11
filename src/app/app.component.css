@@ -1,0 +1,12 @@
+p {
+  font-family: Lato;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    background-color: black;
+    color: white;
+    padding: 15px;
+    gap: 15px;
+}
