@@ -1,0 +1,7 @@
+.container {
+  background-color: lightcoral;
+  margin: 5px;
+  padding: 5px;
+  font: 'Roboto';
+  border-radius: 5px;
+}
