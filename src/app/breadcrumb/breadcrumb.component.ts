@@ -18,13 +18,14 @@ export class BreadcrumbComponent implements OnInit {
   ngOnInit() {}
 
   navigateTo(event) {
-    console.log("ROUTE ", event.url);
+    console.log('DELETE ', event);
     if (event) {
       const id = event.id;
       this.breadValue = this.navigation.stack = this.navigation.stack.filter(
-        (item) => !(item.id > id - 1)
+        (item) => !(item.id > id)
       );
-      // this.route.navigate(event.url)
+      console.log(this.breadValue);
+      this.route.navigate([event.url]);
     }
   }
 }

@@ -14,12 +14,12 @@ export class NavigationService {
   i = 0;
 
   constructor(private route: Router, private activeRoute: ActivatedRoute) {
-    this.route.events
-      .pipe(
-        filter((e) => e instanceof ActivationStart),
-        map((instance: ActivationStart) => instance.snapshot.url)
-      )
-      .subscribe((res) => console.log('RES ', res));
+    // this.route.events
+    //   .pipe(
+    //     filter((e) => e instanceof ActivationStart),
+    //     map((instance: ActivationStart) => instance.snapshot.url)
+    //   )
+    //   .subscribe((res) => console.log('RES ', res));
 
     this.route.events
       .pipe(
@@ -28,14 +28,17 @@ export class NavigationService {
           return route['snapshot'];
         }),
         tap((item) => {
-          console.log('ROUTE ', item);
+          console.log("1", item.url.map(p => decodeURIComponent(p.toString())).join('/'))
+          console.log("2", this.stack.at(-1))
+          if(this.stack.length > 0 && item.url.map(p => decodeURIComponent(p.toString())).join('/') == this.stack[this.stack.length - 1].url) { console.log("SONO UGUALI")}
+          console.log("ITEM ", item)
           this.stack.push({
             id: this.i++,
             title: item.data.breadcrumb,
-            params: item.params,
+            params: JSON.parse(decodeURIComponent(JSON.stringify(item.params))),
             url: item.url
               .map((p) => {
-                return p.toString();
+                return decodeURIComponent(p.toString())
               })
               .join('/'),
           });

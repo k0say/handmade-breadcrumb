@@ -1,5 +1,9 @@
 <div>
-  <a [routerLink]=[i.url] *ngFor="let i of breadValue" (click)="navigateTo(i)">
-    {{i?.title }} - {{ i?.params.name}}> 
+  <a
+    [routerLink]="[i.url]"
+    *ngFor="let i of breadValue"
+    (click)="navigateTo(i)"
+  >
+    {{ i?.title }} - {{ i?.params.name }}>
   </a>
 </div>
