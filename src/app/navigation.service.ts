@@ -11,8 +11,16 @@ import { BehaviorSubject, filter, map, tap } from 'rxjs';
 @Injectable()
 export class NavigationService {
   public stack = [];
+  i = 0;
 
   constructor(private route: Router, private activeRoute: ActivatedRoute) {
+    this.route.events
+      .pipe(
+        filter((e) => e instanceof ActivationStart),
+        map((instance: ActivationStart) => instance.snapshot.url)
+      )
+      .subscribe((res) => console.log('RES ', res));
+
     this.route.events
       .pipe(
         filter((e) => e instanceof ActivationStart),
@@ -20,14 +28,21 @@ export class NavigationService {
           return route['snapshot'];
         }),
         tap((item) => {
+          console.log('ROUTE ', item);
           this.stack.push({
+            id: this.i++,
             title: item.data.breadcrumb,
             params: item.params,
+            url: item.url
+              .map((p) => {
+                return p.toString();
+              })
+              .join('/'),
           });
         })
       )
       .subscribe((customData) => {
-        console.log(customData);
+        // console.log("OUT ", customData);
         console.log('STACK ', this.stack);
       });
   }
