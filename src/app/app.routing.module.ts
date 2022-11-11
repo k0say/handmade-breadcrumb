@@ -10,9 +10,9 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,
     RouterModule.forRoot([
-      { path: 'a', component: AComponent, data: { msg: 'page msg' } },
-      { path: 'b/:id/:name', component: BComponent, data: { msg: 'page msg2' } },
-      { path: 'c', component: CComponent, data: { msg: 'page msg3' } },
+      { path: 'a', component: AComponent, data: { breadcrumb: 'page A' } },
+      { path: 'b/:id/:name', component: BComponent, data: { breadcrumb: 'page B' } },
+      { path: 'c', component: CComponent, data: { breadcrumb: 'page C' } },
       { path: '**', redirectTo: 'a' },
     ]),
   ],
