@@ -1,7 +1,10 @@
 .container {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
   background-color: lightcoral;
   margin: 5px;
   padding: 5px;
-  font: 'Roboto';
+  font: 'Caption';
   border-radius: 5px;
 }
